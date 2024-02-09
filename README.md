@@ -1,4 +1,4 @@
-# healhub
+# HealHub
 
 A mental well-being application.
 
