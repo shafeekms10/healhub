@@ -49,7 +49,7 @@ class NavigationDrawer extends StatelessWidget {
       onTap: (){
         Navigator.pop(context);
         Navigator.of(context).push(MaterialPageRoute(
-          builder: (context)=>const UserPage(name: 'John Doe', email: 'john@example.com'),
+          builder: (context)=>const UserPage(name: 'SahanMax', email: 'Sahan@gmail.com'),
 
 
         ));
@@ -158,21 +158,7 @@ class HomePage extends StatelessWidget {
   }
 }
 
-class FavoritePage extends StatelessWidget {
-  const FavoritePage({Key? key}) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Favorite Page'),
-      ),
-      body: Center(
-        child: const Text('Welcome to the Favorite Page!'),
-      ),
-    );
-  }
-}
 
 
 
