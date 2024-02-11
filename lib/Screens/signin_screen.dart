@@ -20,13 +20,13 @@ class SignIn extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   const SizedBox(
-                    height: 60,
+                    height: 50,
                   ),
                   SizedBox(
                     height: 220,
                     width: 200,
                     child: Image.asset(
-                      'images/Logo.png',
+                      'assets/images/Logo.png',
                     ),
                   ),
                   const SizedBox(height: 10,),

@@ -1,8 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:healhub/Screens/aboutus_screen.dart';
 import 'package:healhub/Screens/contactus_screen.dart';
+import 'package:healhub/Screens/counsellor_directory.dart';
 import 'package:healhub/Screens/profile_screen.dart';
 import 'package:healhub/Screens/signin_screen.dart';
+import 'package:another_carousel_pro/another_carousel_pro.dart';
+
+List imgData = [
+  "assets/images/home1.png",
+  "assets/images/home2.png",
+  "assets/images/home3.png",
+  "assets/images/home4.png",
+  "assets/images/home5.png",
+  "assets/images/home6.png"
+];
+
+List titles = [
+  "Counsellors",
+  "Chat",
+  "Chat Bot",
+  "Resources",
+  "Hotlines",
+  "Feedback",
+];
 
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
@@ -14,16 +34,121 @@ class Home extends StatelessWidget {
       title: 'HealHub',
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('HealHub'),
-          flexibleSpace: Container(
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                colors: [Colors.teal.shade400, Colors.teal.shade100],
+          title: const Text('HealHub',
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
+          flexibleSpace: Opacity(
+            opacity: 0.7,
+            child: Container(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [Colors.teal.shade400, Colors.teal.shade100],
+                ),
               ),
             ),
           ),
         ),
-        drawer: const NavigationDrawer(), // Adding the NavigationDrawer widget here
+        drawer: const NavigationDrawer(),
+        body: Column(
+          children: [
+            SingleChildScrollView(
+              child: Container(
+                decoration: const BoxDecoration(
+                  color: Colors.black,
+                    borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(50),
+                      bottomRight: Radius.circular(50),
+                    )
+                ),
+                height: 410,
+                child: AnotherCarousel(
+                  images: const [
+                    AssetImage('assets/images/1.jpg'),
+                    AssetImage('assets/images/2.jpg'),
+                    AssetImage('assets/images/3.jpg'),
+                    AssetImage('assets/images/4.jpg')
+                  ],
+                  dotBgColor: Colors.transparent,
+                  dotColor: Colors.black,
+                ),
+              ),
+            ),
+            Container(
+              decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                      colors: [Colors.teal.shade50, Colors.white,Colors.teal.shade50])),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const SizedBox(
+                    height: 7,
+                  ),
+                  GridView.builder(
+                      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 3,
+                        childAspectRatio: 0.85,
+                        mainAxisSpacing: 1,
+                      ),
+                      shrinkWrap: true,
+                      physics: const NeverScrollableScrollPhysics(),
+                      itemCount: imgData.length,
+                      itemBuilder: (context,index){
+                        return InkWell(
+                          onTap: (){
+                            if(index == 0){
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) => Directory()
+                              ));
+                            }
+                            else if(index == 1){
+                            }
+                            else if(index == 2){
+                            }
+                            else if(index == 3){
+                            }
+                            else if(index == 4){
+                            }
+                            else if(index == 5){
+                            }
+                          },
+                          child: Container(
+                            margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20),
+                              color: Colors.white,
+                              boxShadow: const [
+                                BoxShadow(
+                                  color: Colors.black26,
+                                  spreadRadius: 2,
+                                  blurRadius: 8
+                                ),
+                              ],
+                            ),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Image.asset(imgData[index],
+                                  width: 75,
+                                ),
+                                Center(
+                                  child: Text(titles[index],
+                                    style: const TextStyle(
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.bold
+                                    ),
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
+                        );
+                      }
+                  ),
+                ],
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
@@ -51,17 +176,13 @@ class NavigationDrawer extends StatelessWidget {
         Navigator.pop(context);
         Navigator.of(context).push(MaterialPageRoute(
           builder: (context)=>const UserPage(name: 'SahanMax', email: 'Sahan@gmail.com'),
-
-
         ));
-
       },
       child:Container(
         padding:  EdgeInsets.only(
           top: 24+ MediaQuery.of(context).padding.top,
           bottom:24,
         ),
-
         child: const Column(
           children: [
             CircleAvatar(
@@ -87,7 +208,6 @@ class NavigationDrawer extends StatelessWidget {
     padding: const EdgeInsets.all(30),
     child:Wrap(
       runSpacing: 18,
-
       children: [
         ListTile(
           leading: const Icon(Icons.home_outlined,),
