@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:healhub/Screens/aboutus_screen.dart';
+import 'package:healhub/Screens/chatBot.dart';
 import 'package:healhub/Screens/contactus_screen.dart';
 import 'package:healhub/Screens/counsellor_directory.dart';
 import 'package:healhub/Screens/profile_screen.dart';
@@ -96,13 +97,16 @@ class Home extends StatelessWidget {
                         return InkWell(
                           onTap: (){
                             if(index == 0){
-                              Navigator.of(context).push(MaterialPageRoute(
+                              Navigator.push(context, MaterialPageRoute(
                                   builder: (context) => Directory()
                               ));
                             }
                             else if(index == 1){
                             }
                             else if(index == 2){
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) => ChatScreen()
+                              ));
                             }
                             else if(index == 3){
                             }

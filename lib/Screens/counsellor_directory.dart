@@ -1,6 +1,15 @@
 
 import 'package:flutter/material.dart';
 
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Directory(),
+    );
+  }
+}
+
 class Counselor {
   final String name;
   final String job;
@@ -90,13 +99,24 @@ class Directory extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Counselor Directory'),
-          backgroundColor: Colors.green,
+          title: const Text('Counselor Directory',
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
+          flexibleSpace: Opacity(
+            opacity: 0.7,
+            child: Container(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [Colors.teal.shade400, Colors.teal.shade100],
+                ),
+              ),
+            ),
+          ),
         ),
         body: Column(
           children: [
             Container(
-              color: Colors.lightGreen[100], 
+              color: Color.fromARGB(212, 189, 228, 211), 
               padding: EdgeInsets.all(10.0),
               child: TextField(
                 decoration: InputDecoration(
@@ -107,6 +127,7 @@ class Directory extends StatelessWidget {
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10.0),
                     borderSide: BorderSide.none, 
+                    
                   ),
                 ),
                 onChanged: (value) {
@@ -116,7 +137,7 @@ class Directory extends StatelessWidget {
             ),
             Expanded(
               child: Container(
-                color: Colors.lightGreen[100], 
+                color: Color.fromARGB(212, 189, 228, 211), 
                 child: ListView.builder(
                   itemCount: counselors.length,
                   itemBuilder: (context, index) {
@@ -166,10 +187,22 @@ class CounselorProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      
       appBar: AppBar(
-        title: Text('Counselor Profile'),
-        backgroundColor: Colors.green,
-      ),
+          title: const Text('Counselor Profile',
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
+          flexibleSpace: Opacity(
+            opacity: 0.7,
+            child: Container(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [Colors.teal.shade400, Colors.teal.shade100],
+                ),
+              ),
+            ),
+          ),
+        ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Center(
@@ -225,7 +258,7 @@ class CounselorProfileScreen extends StatelessWidget {
                     style: TextStyle(color: Colors.black),
                   ),
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.green,
+                    backgroundColor: Color.fromARGB(255, 6, 120, 97),
                   ),
                 ),
               ],
@@ -295,9 +328,20 @@ class _TimeSlotsScreenState extends State<TimeSlotsScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Available Time Slots'),
-        backgroundColor: Colors.green,
-      ),
+          title: const Text('Available Time Slots',
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
+          flexibleSpace: Opacity(
+            opacity: 0.7,
+            child: Container(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [Colors.teal.shade400, Colors.teal.shade100],
+                ),
+              ),
+            ),
+          ),
+        ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal:20 ),
          
@@ -307,7 +351,7 @@ class _TimeSlotsScreenState extends State<TimeSlotsScreen> {
               children: [
                 SizedBox(height: 20),
                 Text(
-                  'Time Slots for ${widget.counselor.name}:',
+                  'Time Slots for ${widget.counselor.name}',
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
                 SizedBox(height: 20),
@@ -320,7 +364,7 @@ class _TimeSlotsScreenState extends State<TimeSlotsScreen> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              '${entry.key}:',
+                              '${entry.key}',
                               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                             ),
                             SizedBox(height: 10),

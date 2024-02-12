@@ -7,8 +7,21 @@ class AboutUsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('About Us'),
-      ),
+          title: const Text('About Us',
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
+          flexibleSpace: Opacity(
+            opacity: 0.7,
+            child: Container(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [Colors.teal.shade400, Colors.teal.shade100],
+                ),
+              ),
+            ),
+          ),
+        ),
+      
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(20.0),
         child: Column(

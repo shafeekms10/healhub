@@ -6,10 +6,22 @@ class ContactUsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      
       appBar: AppBar(
-        backgroundColor:Colors.teal.shade300,
-        title: const Text('Contact Us'),
-      ),
+          title: const Text('Contact Us',
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
+          flexibleSpace: Opacity(
+            opacity: 0.7,
+            child: Container(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [Colors.teal.shade400, Colors.teal.shade100],
+                ),
+              ),
+            ),
+          ),
+        ),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Column(
@@ -47,7 +59,8 @@ class ContactUsPage extends StatelessWidget {
               ),
               child: const Text(
                 'Contact Now',
-                style: TextStyle(fontSize: 18),
+                style: TextStyle(fontSize: 18,color: Colors.black),
+                
               ),
             ),
           ],
