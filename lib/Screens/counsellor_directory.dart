@@ -295,10 +295,36 @@ class _TimeSlotsScreenState extends State<TimeSlotsScreen> {
   }
 
   void bookSlot(String timeSlot) {
-    setState(() {
-      bookedSlots[timeSlot] = true;
-    });
-    
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('Confirm Booking'),
+          content: Text('Are you sure you want to book the time slot $timeSlot of ${widget.counselor.name}?'),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: Text('No'),
+            ),
+            TextButton(
+              onPressed: () {
+                setState(() {
+                  bookedSlots[timeSlot] = true;
+                });
+                Navigator.of(context).pop(); // Close the confirmation dialog
+                showBookingConfirmationDialog(timeSlot);
+              },
+              child: Text('Yes'),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  void showBookingConfirmationDialog(String timeSlot) {
     showDialog(
       context: context,
       builder: (BuildContext context) {
@@ -328,81 +354,80 @@ class _TimeSlotsScreenState extends State<TimeSlotsScreen> {
 
     return Scaffold(
       appBar: AppBar(
-          title: const Text('Available Time Slots',
-            style: TextStyle(fontWeight: FontWeight.bold),
-          ),
-          flexibleSpace: Opacity(
-            opacity: 0.7,
-            child: Container(
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [Colors.teal.shade400, Colors.teal.shade100],
-                ),
+        title: const Text(
+          'Available Time Slots',
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
+        flexibleSpace: Opacity(
+          opacity: 0.7,
+          child: Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [Colors.teal.shade400, Colors.teal.shade100],
               ),
             ),
           ),
         ),
+      ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal:20 ),
-         
-          child: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBox(height: 20),
-                Text(
-                  'Time Slots for ${widget.counselor.name}',
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                ),
-                SizedBox(height: 20),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    for (var dateSlot in allTimeSlots)
-                      ...dateSlot.entries.map((entry) {
-                        return Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              '${entry.key}',
-                              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                            ),
-                            SizedBox(height: 10),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                for (var timeSlot in entry.value)
-                                  ListTile(
-                                    title: Text(timeSlot),
-                                    trailing: bookedSlots.containsKey(timeSlot) && bookedSlots[timeSlot]! ?
-                                      Text('Booked', style: TextStyle(color: Colors.red)) :
-                                      ElevatedButton(
-                                        onPressed: () {
-                                          if (!bookedSlots.containsKey(timeSlot) || !bookedSlots[timeSlot]!) {
-                                            bookSlot(timeSlot);
-                                          }
-                                        },
-                                        child: Text(
-                                          'Book',
-                                          style: TextStyle(color: Colors.black),
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(height: 20),
+              Text(
+                'Time Slots for ${widget.counselor.name}',
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              ),
+              SizedBox(height: 20),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  for (var dateSlot in allTimeSlots)
+                    ...dateSlot.entries.map((entry) {
+                      return Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            '${entry.key}',
+                            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                          ),
+                          SizedBox(height: 10),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              for (var timeSlot in entry.value)
+                                ListTile(
+                                  title: Text(timeSlot),
+                                  trailing: bookedSlots.containsKey(timeSlot) && bookedSlots[timeSlot]!
+                                      ? Text('Booked', style: TextStyle(color: Colors.red))
+                                      : ElevatedButton(
+                                          onPressed: () {
+                                            if (!bookedSlots.containsKey(timeSlot) || !bookedSlots[timeSlot]!) {
+                                              bookSlot(timeSlot);
+                                            }
+                                          },
+                                          child: Text(
+                                            'Book',
+                                            style: TextStyle(color: Colors.black),
+                                          ),
+                                          style: ElevatedButton.styleFrom(
+                                            backgroundColor: Colors.lightBlue,
+                                          ),
                                         ),
-                                        style: ElevatedButton.styleFrom(
-                                          backgroundColor: Colors.lightBlue,
-                                        ),
-                                      ),
-                                  ),
-                              ],
-                            ),
-                            SizedBox(height: 20),
-                          ],
-                        );
-                      }).toList(),
-                  ],
-                ),
-              ],
-            ),
+                                ),
+                            ],
+                          ),
+                          SizedBox(height: 20),
+                        ],
+                      );
+                    }).toList(),
+                ],
+              ),
+            ],
           ),
-        
+        ),
       ),
     );
   }
