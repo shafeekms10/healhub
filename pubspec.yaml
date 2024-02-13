@@ -36,7 +36,8 @@ dependencies:
   cupertino_icons: ^1.0.2
   font_awesome_flutter: ^9.0.0
   another_carousel_pro: ^1.0.2
-
+  firebase_core: ^2.25.4
+  firebase_analytics: ^10.8.5
 
 dev_dependencies:
   flutter_test:

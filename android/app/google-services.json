@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "46159889623",
+    "project_id": "healhub-b9bc6",
+    "storage_bucket": "healhub-b9bc6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:46159889623:android:ddec470c7f38aea7581c92",
+        "android_client_info": {
+          "package_name": "com.example.healhub"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAkNvZNeREVgX65yUckJ587-FnVoX2f0ts"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
