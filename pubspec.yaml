@@ -38,6 +38,7 @@ dependencies:
   another_carousel_pro: ^1.0.2
   firebase_core: ^2.25.4
   firebase_analytics: ^10.8.5
+  url_launcher: ^6.2.4
 
 dev_dependencies:
   flutter_test:

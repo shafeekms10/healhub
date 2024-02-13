@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:healhub/Screens/aboutus_screen.dart';
-import 'package:healhub/Screens/chatBot.dart';
-import 'package:healhub/Screens/contactus_screen.dart';
+import 'package:healhub/Screens/about.dart';
+import 'package:healhub/Screens/contact.dart';
+import 'package:healhub/Screens/chatbot.dart';
 import 'package:healhub/Screens/counsellor_directory.dart';
+import 'package:healhub/Screens/hotlines.dart';
 import 'package:healhub/Screens/profile_screen.dart';
+import 'package:healhub/Screens/resources.dart';
 import 'package:healhub/Screens/signin_screen.dart';
 import 'package:another_carousel_pro/another_carousel_pro.dart';
 
@@ -109,8 +111,14 @@ class Home extends StatelessWidget {
                               ));
                             }
                             else if(index == 3){
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) => const Resources()
+                              ));
                             }
                             else if(index == 4){
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) => const Hotlines()
+                              ));
                             }
                             else if(index == 5){
                             }
