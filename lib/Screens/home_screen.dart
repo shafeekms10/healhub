@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:healhub/Screens/counsellor_directory.dart';
+import 'package:healhub/Screens/feedback.dart';
 import 'package:healhub/Screens/healhub_bot.dart';
 import 'package:healhub/Screens/hotlines.dart';
 import 'package:healhub/Screens/resources.dart';
@@ -118,6 +119,9 @@ class Homescreen extends StatelessWidget {
                               ));
                             }
                             else if(index == 5){
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) => App()
+                              ));
                             }
                           },
                           child: Container(
