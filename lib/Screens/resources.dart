@@ -109,10 +109,19 @@ class _MyHomePageState extends State<MyHomePage> {
       child: Scaffold(
         // In your AppBar widget inside the Scaffold
         appBar: AppBar(
-          backgroundColor: Colors.teal[700], // Dark green AppBar
+          flexibleSpace: Opacity(
+            opacity: 0.7,
+            child: Container(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [Colors.teal.shade400, Colors.teal.shade100],
+                ),
+              ),
+            ),
+          ),
           title: Text(
             widget.title,
-            style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold),
+            style: const TextStyle(color: Colors.black,fontWeight: FontWeight.bold),
             // AppBar title in white
           ),
           bottom: TabBar(
@@ -121,12 +130,12 @@ class _MyHomePageState extends State<MyHomePage> {
             unselectedLabelColor: Colors.teal[200], // Inactive tab title in lighter green for contrast
             indicator: BoxDecoration(
               color: Colors.teal[200], // Darker green color for the active tab background
-              borderRadius: BorderRadius.only(
+              borderRadius: const BorderRadius.only(
                 topLeft: Radius.circular(10),
                 topRight: Radius.circular(10),
               ),
             ),
-            tabs: [
+            tabs: const [
               Tab(
                 // Use a Text widget to customize the tab's text appearance
                 child: Text(
@@ -194,11 +203,11 @@ class _MyHomePageState extends State<MyHomePage> {
             elevation: 4,
             margin: const EdgeInsets.all(8),
             color: Colors.teal[400], // Set card background to green
-            child: Padding(
-              padding: const EdgeInsets.all(16.0),
+            child: const Padding(
+              padding: EdgeInsets.all(16.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: const <Widget>[
+                children: <Widget>[
                   Text(
                     'Books:',
                     style: TextStyle(
@@ -221,11 +230,11 @@ class _MyHomePageState extends State<MyHomePage> {
             elevation: 4,
             margin: const EdgeInsets.all(8),
             color: Colors.teal[400], // Set card background to green
-            child: Padding(
-              padding: const EdgeInsets.all(16.0),
+            child: const Padding(
+              padding: EdgeInsets.all(16.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: const <Widget>[
+                children: <Widget>[
                   Text(
                     'Apps:',
                     style: TextStyle(

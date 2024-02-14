@@ -97,7 +97,7 @@ class Homescreen extends StatelessWidget {
                           onTap: (){
                             if(index == 0){
                               Navigator.push(context, MaterialPageRoute(
-                                  builder: (context) => Directory()
+                                  builder: (context) => const Directory()
                               ));
                             }
                             else if(index == 1){

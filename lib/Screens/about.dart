@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(MaterialApp(
+void main() => runApp(const MaterialApp(
   home: AboutUsPage(),
 ));
 
@@ -11,14 +11,21 @@ class AboutUsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
+
       appBar: AppBar(
-        foregroundColor: Colors.teal[300],
-        title: Text('Options',style:TextStyle(
-            color: Colors.black,
-            fontSize: 30
-        )
+        title: const Text('Options',
+          style: TextStyle(fontWeight: FontWeight.bold),
         ),
-        backgroundColor: Colors.teal,
+        flexibleSpace: Opacity(
+          opacity: 0.7,
+          child: Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [Colors.teal.shade400, Colors.teal.shade100],
+              ),
+            ),
+          ),
+        ),
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -33,7 +40,7 @@ class AboutUsPage extends StatelessWidget {
                   Expanded(
                     child: Container(
                       color: Colors.teal[300],
-                      child: Center(
+                      child: const Center(
                         child: Text('About',style: TextStyle(
                           fontSize: 15,
                           fontWeight: FontWeight.w900,
@@ -47,12 +54,12 @@ class AboutUsPage extends StatelessWidget {
                       onTap: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => OurServices()),
+                          MaterialPageRoute(builder: (context) => const OurServices()),
                         );
                       },
                       child: Container(
                         color: Colors.teal[300],
-                        child: Center(
+                        child: const Center(
                           child: Text('Our Services',style: TextStyle(
                             fontSize: 15,
                           ),
@@ -66,12 +73,12 @@ class AboutUsPage extends StatelessWidget {
                       onTap: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => FAQ()),
+                          MaterialPageRoute(builder: (context) => const FAQ()),
                         );
                       },
                       child: Container(
                         color: Colors.teal[300],
-                        child: Center(
+                        child: const Center(
                           child: Text('FAQ',style: TextStyle(
                             fontSize: 15,
                           ),
@@ -85,12 +92,12 @@ class AboutUsPage extends StatelessWidget {
                       onTap: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => Volunteer()),
+                          MaterialPageRoute(builder: (context) => const Volunteer()),
                         );
                       },
                       child: Container(
                         color: Colors.teal[300],
-                        child: Center(
+                        child: const Center(
                           child: Text('Volunteer',style: TextStyle(
                             fontSize: 15,
                           ),
@@ -107,7 +114,7 @@ class AboutUsPage extends StatelessWidget {
             padding: const EdgeInsets.all(15),
             child: Container(
               color: Colors.white,
-              child: Column(
+              child: const Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text('Our mission',style: TextStyle(
@@ -116,7 +123,7 @@ class AboutUsPage extends StatelessWidget {
                   )
                   ),
                   Padding(
-                    padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
+                    padding: EdgeInsets.fromLTRB(0, 10, 0, 10),
                     child: Text('Remove barriers to therapy and make mental health care more accessible to anyone and everyone who is in need of assistance.',style: TextStyle(
                         fontSize: 15
                     )
@@ -129,7 +136,7 @@ class AboutUsPage extends StatelessWidget {
                   )
                   ),
                   Padding(
-                    padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
+                    padding: EdgeInsets.fromLTRB(0, 10, 0, 10),
                     child: Text('To make it known that no one is alone in their problems and to ensure a better, less stressful life for everyone through our app and its users.',style: TextStyle(
                         fontSize: 15
                     )
@@ -153,13 +160,19 @@ class OurServices extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        foregroundColor: Colors.teal[300],
-        title: Text('Options',style:TextStyle(
-            color: Colors.black,
-            fontSize: 30
-        )
+        title: const Text('Options',
+          style: TextStyle(fontWeight: FontWeight.bold),
         ),
-        backgroundColor: Colors.teal,
+        flexibleSpace: Opacity(
+          opacity: 0.7,
+          child: Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [Colors.teal.shade400, Colors.teal.shade100],
+              ),
+            ),
+          ),
+        ),
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -176,13 +189,13 @@ class OurServices extends StatelessWidget {
                       onTap: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => AboutUsPage()),
+                          MaterialPageRoute(builder: (context) => const AboutUsPage()),
                         );
                       },
                       child: Expanded(
                         child: Container(
                           color: Colors.teal[300],
-                          child: Center(
+                          child: const Center(
                             child: Text('About',style: TextStyle(
                               fontSize: 15,
                             ),
@@ -197,13 +210,13 @@ class OurServices extends StatelessWidget {
                       onTap: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => OurServices()),
+                          MaterialPageRoute(builder: (context) => const OurServices()),
                         );
                       },
                       child: Expanded(
                         child: Container(
                           color: Colors.teal[300],
-                          child: Center(
+                          child: const Center(
                             child: Text('Our Services',style: TextStyle(
                                 fontSize: 15,
                                 fontWeight: FontWeight.w900
@@ -219,13 +232,13 @@ class OurServices extends StatelessWidget {
                       onTap: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => FAQ()),
+                          MaterialPageRoute(builder: (context) => const FAQ()),
                         );
                       },
                       child: Expanded(
                         child: Container(
                           color: Colors.teal[300],
-                          child: Center(
+                          child: const Center(
                             child: Text('FAQ',style: TextStyle(
                               fontSize: 15,
                             ),
@@ -240,13 +253,13 @@ class OurServices extends StatelessWidget {
                       onTap: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => Volunteer()),
+                          MaterialPageRoute(builder: (context) => const Volunteer()),
                         );
                       },
                       child: Expanded(
                         child: Container(
                           color: Colors.teal[300],
-                          child: Center(
+                          child: const Center(
                             child: Text('Volunteer',style: TextStyle(
                               fontSize: 15,
                             ),
@@ -264,7 +277,7 @@ class OurServices extends StatelessWidget {
             padding: const EdgeInsets.all(15),
             child: Container(
               color: Colors.white,
-              child: Column(
+              child: const Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text('As our mission and vision says, we aim to provide a helping hand to anyone and everyone in need of assistance or sometimes, just some company. To fulfill those needs we offer the following services.',style: TextStyle(
@@ -272,8 +285,8 @@ class OurServices extends StatelessWidget {
                   )
                   ),
                   Padding(
-                    padding: const EdgeInsets.fromLTRB(10, 20, 5, 10),
-                    child: Text('* Finding and booking counseling appointments with professionals of your choice. \n* Secure real-time chatting between users and counselors.\n *Maintain a record of past counseling sessions to track progress.\n* Notifications for upcoming sessions and new messages.\n*Privacy and security measures are in place for user data.\n*Access to support resources such as books, articles, etc.\n*Offer educational resources related to mental health.\n*Emergency hotline service for anyone in need.',style: TextStyle(
+                    padding: EdgeInsets.fromLTRB(10, 20, 5, 10),
+                    child: Text('\u2022 Finding and booking counseling appointments with professionals of your choice. \n\u2022 Secure real-time chatting between users and counselors.\n \u2022 Maintain a record of past counseling sessions to track progress.\n\u2022 Notifications for upcoming sessions and new messages.\n\u2022 Privacy and security measures are in place for user data.\n\u2022 Access to support resources such as books, articles, etc.\n\u2022 Offer educational resources related to mental health.\n\u2022 Emergency hotline service for anyone in need.',style: TextStyle(
                         fontSize: 15
                     )
                     ),
@@ -296,13 +309,19 @@ class FAQ extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        foregroundColor: Colors.teal[300],
-        title: Text('Options',style:TextStyle(
-            color: Colors.black,
-            fontSize: 30
-        )
+        title: const Text('Options',
+          style: TextStyle(fontWeight: FontWeight.bold),
         ),
-        backgroundColor: Colors.teal,
+        flexibleSpace: Opacity(
+          opacity: 0.7,
+          child: Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [Colors.teal.shade400, Colors.teal.shade100],
+              ),
+            ),
+          ),
+        ),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -320,13 +339,13 @@ class FAQ extends StatelessWidget {
                         onTap: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => AboutUsPage()),
+                            MaterialPageRoute(builder: (context) => const AboutUsPage()),
                           );
                         },
                         child: Expanded(
                           child: Container(
                             color: Colors.teal[300],
-                            child: Center(
+                            child: const Center(
                               child: Text('About',style: TextStyle(
                                 fontSize: 15,
                               ),
@@ -341,13 +360,13 @@ class FAQ extends StatelessWidget {
                         onTap: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => OurServices()),
+                            MaterialPageRoute(builder: (context) => const OurServices()),
                           );
                         },
                         child: Expanded(
                           child: Container(
                             color: Colors.teal[300],
-                            child: Center(
+                            child: const Center(
                               child: Text('Our Services',style: TextStyle(
                                 fontSize: 15,
 
@@ -362,7 +381,7 @@ class FAQ extends StatelessWidget {
                       child: Expanded(
                         child: Container(
                           color: Colors.teal[300],
-                          child: Center(
+                          child: const Center(
                             child: Text('FAQ',style: TextStyle(
                                 fontSize: 15,
                                 fontWeight: FontWeight.w900
@@ -377,13 +396,13 @@ class FAQ extends StatelessWidget {
                         onTap: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => Volunteer()),
+                            MaterialPageRoute(builder: (context) => const Volunteer()),
                           );
                         },
                         child: Expanded(
                           child: Container(
                             color: Colors.teal[300],
-                            child: Center(
+                            child: const Center(
                               child: Text('Volunteer',style: TextStyle(
                                 fontSize: 15,
                               ),
@@ -401,7 +420,7 @@ class FAQ extends StatelessWidget {
               padding: const EdgeInsets.all(15),
               child: Container(
                 color: Colors.white,
-                child: Column(
+                child: const Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text('Here’s some useful information for you to help navigate the app easier and faster. ',style: TextStyle(
@@ -457,13 +476,19 @@ class Volunteer extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        foregroundColor: Colors.teal[300],
-        title: Text('Options',style:TextStyle(
-            color: Colors.black,
-            fontSize: 30
-        )
+        title: const Text('Options',
+          style: TextStyle(fontWeight: FontWeight.bold),
         ),
-        backgroundColor: Colors.teal,
+        flexibleSpace: Opacity(
+          opacity: 0.7,
+          child: Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [Colors.teal.shade400, Colors.teal.shade100],
+              ),
+            ),
+          ),
+        ),
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -480,13 +505,13 @@ class Volunteer extends StatelessWidget {
                       onTap: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => AboutUsPage()),
+                          MaterialPageRoute(builder: (context) => const AboutUsPage()),
                         );
                       },
                       child: Expanded(
                         child: Container(
                           color: Colors.teal[300],
-                          child: Center(
+                          child: const Center(
                             child: Text('About',style: TextStyle(
                               fontSize: 15,
                             ),
@@ -501,13 +526,13 @@ class Volunteer extends StatelessWidget {
                       onTap: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => OurServices()),
+                          MaterialPageRoute(builder: (context) => const OurServices()),
                         );
                       },
                       child: Expanded(
                         child: Container(
                           color: Colors.teal[300],
-                          child: Center(
+                          child: const Center(
                             child: Text('Our Services',style: TextStyle(
                               fontSize: 15,
 
@@ -523,13 +548,13 @@ class Volunteer extends StatelessWidget {
                       onTap: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => FAQ()),
+                          MaterialPageRoute(builder: (context) => const FAQ()),
                         );
                       },
                       child: Expanded(
                         child: Container(
                           color: Colors.teal[300],
-                          child: Center(
+                          child: const Center(
                             child: Text('FAQ',style: TextStyle(
                               fontSize: 15,
                             ),
@@ -543,7 +568,7 @@ class Volunteer extends StatelessWidget {
                     child: Expanded(
                       child: Container(
                         color: Colors.teal[300],
-                        child: Center(
+                        child: const Center(
                           child: Text('Volunteer',style: TextStyle(
                               fontSize: 15,
                               fontWeight: FontWeight.w900
@@ -561,7 +586,7 @@ class Volunteer extends StatelessWidget {
             padding: const EdgeInsets.all(15.0),
             child: Container(
               color: Colors.white,
-              child: Column(
+              child: const Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text('Join a team of heroes that’s changing and saving lives!',style: TextStyle(

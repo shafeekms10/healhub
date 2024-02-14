@@ -9,8 +9,21 @@ class UserPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       appBar: AppBar(
-        title: const Text('User Profile'),
+        title: const Text('User Profile',
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
+        flexibleSpace: Opacity(
+          opacity: 0.7,
+          child: Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [Colors.teal.shade400, Colors.teal.shade100],
+              ),
+            ),
+          ),
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
