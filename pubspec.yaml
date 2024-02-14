@@ -40,6 +40,8 @@ dependencies:
   firebase_analytics: ^10.8.5
   dialog_flowtter: ^0.3.3
   url_launcher: ^6.2.4
+  cloud_firestore: 4.15.4
+
 
 
 dev_dependencies:
