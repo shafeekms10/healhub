@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:healhub/Screens/sidemenu.dart';
 
 class Hotlines extends StatelessWidget {
   const Hotlines({super.key});
@@ -41,6 +42,7 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Colors.green,
         title: Text(widget.title),
       ),
+      drawer: const Sidemenu(),
       body: Container(
         color: Colors.green[100], // Light green background
         child: ListView.builder(

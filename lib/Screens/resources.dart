@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:healhub/Screens/sidemenu.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Resources extends StatelessWidget {
@@ -150,6 +151,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ],
           ),
         ),
+        drawer: const Sidemenu(),
 
         body: TabBarView(
           children: [

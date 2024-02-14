@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "healhubbot-gwk9",
+  "private_key_id": "1a820c4e6e63ff10abcb50513801db00d3ff1c73",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQDSmhwjDsHxaZJP\nwkKsy41cd8n+aPgFWlN3sH/o+WCd0InTzP434N2OPQEKDRIit0MGFB5Zgm0bKwnt\ngzxE9iGttLywjK5Au82K0PhLR2FLgeRx/VSi2dL9u8H9Ol4qJYvvrDWaEMY/Bte/\nJer3uU9dj9tFQ1DQAQS+jBQ5K7hwhlf/OqmSC+KbK4jA/Gs857tYuN10naAqd/ox\nlC/LzHHeqyeHL+6JjiaR0Me0Frc9564vC/Zl4Atb3dHv0qJIsYSRO4zOLxMGBWNa\nRqrgnJZMStg8OD7EKSz18U+V2UfFwc2OliyqEvUitXJpRUGzODxFuEL6qhxNv4Cp\nX1n5twNFAgMBAAECggEAF4B2Kl1fvEKFPtxVV3YhsNN3Wao6H1LMpLswEv4dT48x\nik7CgdbYsqJRJt99ih08YAXHu0JoTZNYeMZf5+w1pu5X7jXMzlGG5vpZ8wCktWnp\n5eSY2NGJD6Kvy8QDNR3ah2UG2EoN7YOkeOLQ3VMzLaQ7mnegIY4zitYT/atI2lmX\nzSHh6tyFPoH1AbUyO3Ihqb6bJ5TiPotH7pmQr7SjIczJ1TWwuwWsO5qt4vGYkcYu\nKmL+VtyYlxgr4JD/elqkhwU3NCuRUMQou9zvRumWsCNnD3hpivxiVcXTDYyd9r3K\nZq+M7of5yNIosUK4sWSuwMrQleUsAnOvnpdiUofKcwKBgQDrla8mW4H3VV12GATk\nBOYmYnkRmca3MDhFwjhCnw+qIgpBjE8Id556lfAjjJCYjlU1zfOaihMkHx25aoO2\neINx4J9g9edTnchckjXBbAuGMQFofkmRU8f0sfTJzOZzTl5N9myCjYqYsZ+hUpFf\nCU6kZQD/Uh7eavAtGFtHpN7jawKBgQDk2jK5SQpYGS+F2gR/ywJdm5j4z4Ox2WEi\nXlRxccncHHi6Fdkcyn82m0mnIBqNh5/GFdTdGPjDwRuhsTCbOOO2L84hnDjIuVfN\n6sitQRSw5+ppbZ3+TR20LGNnnbr/nQs2xRd+UaL4bPTuJQWw2W83CnAfmN7ncJpu\n6YXVZJMQDwKBgQC8piCblqt8Y99zscg4z7N9CV3pujpmdzaYpe5navggRSHxW2nu\nXduKTob98JHZmCCj9UgdeHPbeQ9UavcOJ3MavcTi4Add7fuEJZDmUp7n1lZKVtaS\niYSVbeuXrXzc2OSriala4f0aSSKLDJNchxdyjW8/BYOyl++8LMTrmhriAQKBgQCi\ngVKtgXEn99JoINU7DaQDZn7shyaD/tFbv1IFMIDfnRQZR3RhXmWRGBnn5AMW5uyM\nk2oRCi9ziceePJ1AS9hewXmFIlKsLfhsj0CqzmDr8fLhpGYhcw8Zpr97j2R/KDwT\nS0cQetXXxD70cDOnTe8MTYwq07nM7IetJIPVcNKA/wKBgQCbe2uRMnLMp34OMPgA\n6D/x1jN9D6c7LMiRiSKsewxTzSx9X+xmS+4eIYuphjcZUj1nXT2PruVj+Qv3m1lq\n93d35/UZs9RATUfaMF6gSxFBr3AcNlVHPp69sGesS4Ct1ewslrnrRILXZEQaYIcz\nvBYn/DqHtvGXY5iHAgmaZpedeA==\n-----END PRIVATE KEY-----\n",
+  "client_email": "healhubbot@healhubbot-gwk9.iam.gserviceaccount.com",
+  "client_id": "108557052613868458406",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/healhubbot%40healhubbot-gwk9.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

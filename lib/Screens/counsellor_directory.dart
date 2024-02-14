@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:healhub/Screens/sidemenu.dart';
 
 class MyApp extends StatelessWidget {
   @override
@@ -113,6 +114,7 @@ class Directory extends StatelessWidget {
             ),
           ),
         ),
+        drawer: const Sidemenu(),
         body: Column(
           children: [
             Container(
