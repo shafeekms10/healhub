@@ -6,10 +6,12 @@ import 'package:healhub/Services/chat/chat_service.dart';
 
 class ChatPage extends StatefulWidget {
   final String receiverUserEmail;
+  final String receiverName;
   final String receiverUserID;
   const ChatPage({super.key,
     required this.receiverUserEmail,
     required this.receiverUserID,
+    required this.receiverName
   });
 
   @override
@@ -33,7 +35,7 @@ class _ChatPageState extends State<ChatPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.receiverUserEmail, style: const TextStyle(fontWeight: FontWeight.bold,fontSize: 19),),
+        title: Text(widget.receiverName, style: const TextStyle(fontWeight: FontWeight.bold,fontSize: 19),),
         flexibleSpace: Opacity(
           opacity: 0.7,
           child: Container(

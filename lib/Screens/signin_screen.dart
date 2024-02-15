@@ -66,7 +66,7 @@ class _SignInState extends State<SignIn> {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  const SizedBox(height: 35,),
+                  const SizedBox(height: 25,),
                   Opacity(
                     opacity: 0.8,
                     child: Container(

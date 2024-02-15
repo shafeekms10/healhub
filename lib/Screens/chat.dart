@@ -62,10 +62,10 @@ class _ChatState extends State<Chat> {
   Widget _buildUserListItem(DocumentSnapshot document) {
     Map<String, dynamic> data = document.data()! as Map<String, dynamic>;
 
-    if(_auth.currentUser!.email != data['email']){
+    if(_auth.currentUser!.displayName != data['name']){
       return ListTile(
         leading:const Icon(Icons.account_circle, size: 30, color: Colors.teal,),
-        title: Text(data['email'], style: const TextStyle(fontWeight: FontWeight.bold,fontSize: 17),),
+        title: Text(data['name'], style: const TextStyle(fontWeight: FontWeight.bold,fontSize: 18),),
         onTap: () {
           Navigator.push(
             context,
@@ -73,6 +73,7 @@ class _ChatState extends State<Chat> {
               builder: (context) => ChatPage(
                 receiverUserEmail: data['email'],
                 receiverUserID: data['uid'],
+                receiverName: data['name'],
               ),
             ),
           );

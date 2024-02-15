@@ -10,11 +10,13 @@ class ChatService extends ChangeNotifier{
   Future<void> sendMessage(String receiverId,String message) async {
     final String currentUserId = _firebaseAuth.currentUser!.uid;
     final String currentEmail = _firebaseAuth.currentUser!.email!.toString();
+    final String currentName = _firebaseAuth.currentUser!.displayName!.toString();
     final Timestamp timestamp = Timestamp.now();
 
     Message newMessage = Message(
         senderId: currentUserId,
         senderEmail: currentEmail,
+        senderName: currentName,
         receiverId: receiverId,
         message: message,
         timestamp: timestamp

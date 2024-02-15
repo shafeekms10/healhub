@@ -17,6 +17,7 @@ class _SignUpState extends State<SignUp> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   final confirmPasswordController = TextEditingController();
+  final nameController = TextEditingController();
 
   void signUp() async{
     if(passwordController.text != confirmPasswordController.text){
@@ -32,6 +33,7 @@ class _SignUpState extends State<SignUp> {
 
     try {
       await authService.signUpWithEmailAndPassword(
+          nameController.text,
           emailController.text,
           passwordController.text
       );
@@ -59,7 +61,7 @@ class _SignUpState extends State<SignUp> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const SizedBox(
-                    height: 50,
+                    height: 20,
                   ),
                   SizedBox(
                     height: 220,
@@ -76,11 +78,11 @@ class _SignUpState extends State<SignUp> {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  const SizedBox(height: 35,),
+                  const SizedBox(height: 20,),
                   Opacity(
                     opacity: 0.8,
                     child: Container(
-                      height: 410,
+                      height: 430,
                       width: 350,
                       decoration: BoxDecoration(
                           color: Colors.white,
@@ -89,7 +91,16 @@ class _SignUpState extends State<SignUp> {
                       child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children:[
-                            const SizedBox(height: 10,),
+                            SizedBox(
+                                width: 250,
+                                child: MyTextField(
+                                  controller: nameController,
+                                  hintText: 'Name',
+                                  icon: FontAwesomeIcons.user,
+                                  obscureText: false,
+                                )
+                            ),
+                            const SizedBox(height: 15,),
                             SizedBox(
                                 width: 250,
                                 child: MyTextField(
@@ -99,7 +110,7 @@ class _SignUpState extends State<SignUp> {
                                   obscureText: false,
                                 )
                             ),
-                            const SizedBox(height: 20,),
+                            const SizedBox(height: 15,),
                             SizedBox(
                                 width: 250,
                                 child: MyTextField(
@@ -109,7 +120,7 @@ class _SignUpState extends State<SignUp> {
                                   obscureText: true,
                                 )
                             ),
-                            const SizedBox(height: 20,),
+                            const SizedBox(height: 15,),
                             SizedBox(
                                 width: 250,
                                 child: MyTextField(
