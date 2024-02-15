@@ -80,7 +80,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
                 subtitle: Text(contacts[index]["number"]!),
                 leading: CircleAvatar(
-                  child: Text(contacts[index]["name"]![0]), // Display the first letter of the name
+                  child: Text(contacts[index]["name"]![0]), // Display the first letter of the name33
                 ),
               ),
             );
