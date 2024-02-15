@@ -1,23 +1,62 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:healhub/Screens/home_screen.dart';
-import 'package:healhub/Screens/signin_screen.dart';
+import 'package:healhub/Components/my_button.dart';
+import 'package:healhub/Components/my_text_field.dart';
+import 'package:healhub/Services/auth/auth_service.dart';
+import 'package:provider/provider.dart';
 
-class SignUp extends StatelessWidget {
-  const SignUp({super.key});
+class SignUp extends StatefulWidget {
+  final void Function()? onTap;
+  const SignUp({super.key, required this.onTap});
+
+  @override
+  State<SignUp> createState() => _SignUpState();
+}
+
+class _SignUpState extends State<SignUp> {
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+  final confirmPasswordController = TextEditingController();
+
+  void signUp() async{
+    if(passwordController.text != confirmPasswordController.text){
+      ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Password does not match!'),
+          )
+      );
+      return;
+    }
+
+    final authService = Provider.of<AuthService>(context, listen: false);
+
+    try {
+      await authService.signUpWithEmailAndPassword(
+          emailController.text,
+          passwordController.text
+      );
+    }
+    catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(e.toString()),
+          )
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         body: SingleChildScrollView(
             child: Container(
-              height: MediaQuery.of(context).size.height,
+              height: 892,
               width: MediaQuery.of(context).size.width,
               decoration: BoxDecoration(
                   gradient: LinearGradient(
                       colors: [Colors.teal.shade400, Colors.teal.shade100])),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const SizedBox(
                     height: 50,
@@ -37,83 +76,52 @@ class SignUp extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  const SizedBox(height: 30,),
+                  const SizedBox(height: 35,),
                   Opacity(
                     opacity: 0.8,
                     child: Container(
-                      height: 440,
+                      height: 410,
                       width: 350,
                       decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(17)
                       ),
                       child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children:[
-                            const SizedBox(height: 25,),
-                            const SizedBox(
-                              width: 250,
-                              child: TextField(
-                                style: TextStyle(fontSize: 13),
-                                decoration: InputDecoration(
-                                  labelText: 'Email Address',
-                                  labelStyle: TextStyle(fontWeight: FontWeight.bold),
-                                  suffixIcon: Icon(FontAwesomeIcons.envelope,size: 17,),
-                                ),
-                              ),
+                            const SizedBox(height: 10,),
+                            SizedBox(
+                                width: 250,
+                                child: MyTextField(
+                                  controller: emailController,
+                                  hintText: 'Email',
+                                  icon: FontAwesomeIcons.envelope,
+                                  obscureText: false,
+                                )
                             ),
                             const SizedBox(height: 20,),
-                            const SizedBox(
-                              width: 250,
-                              child: TextField(
-                                obscureText: true,
-                                decoration: InputDecoration(
-                                  labelText: 'Password',
-                                  labelStyle: TextStyle(fontWeight: FontWeight.bold),
-                                  suffixIcon: Icon(FontAwesomeIcons.eyeSlash,size: 17,),
-                                ),
-                              ),
+                            SizedBox(
+                                width: 250,
+                                child: MyTextField(
+                                  controller: passwordController,
+                                  hintText: 'Password',
+                                  icon: FontAwesomeIcons.lock,
+                                  obscureText: true,
+                                )
                             ),
                             const SizedBox(height: 20,),
-                            const SizedBox(
-                              width: 250,
-                              child: TextField(
-                                obscureText: true,
-                                decoration: InputDecoration(
-                                  labelText: 'Confirm Password',
-                                  labelStyle: TextStyle(fontWeight: FontWeight.bold),
-                                  suffixIcon: Icon(FontAwesomeIcons.eyeSlash,size: 17,),
-                                ),
-                              ),
+                            SizedBox(
+                                width: 250,
+                                child: MyTextField(
+                                  controller: confirmPasswordController,
+                                  hintText: 'Confirm Password',
+                                  icon: FontAwesomeIcons.lock,
+                                  obscureText: true,
+                                )
                             ),
                             const SizedBox(height: 40,),
-                            GestureDetector(
-                              onTap: (){
-                                Navigator.pop(context);
-                                Navigator.of(context).push(MaterialPageRoute(
-                                    builder: (context) => const Homescreen()
-                                ));
-                              },
-                              child: Container(
-                                alignment: Alignment.center,
-                                width: 250,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(50),
-                                  color: const Color(0xFF006A55),
-                                ),
-                                child: const Padding(
-                                  padding: EdgeInsets.all(12.0),
-                                  child: Text('Sign Up',
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                            const SizedBox(height: 33,),
+                            MyButton(onTap: signUp, text: 'Sign Up'),
+                            const SizedBox(height: 27,),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
@@ -124,13 +132,9 @@ class SignUp extends StatelessWidget {
                                     color: Colors.grey,
                                   ),
                                 ),
+                                const SizedBox(width: 5,),
                                 GestureDetector(
-                                  onTap: (){
-                                    Navigator.pop(context);
-                                    Navigator.of(context).push(MaterialPageRoute(
-                                        builder: (context) => const SignIn()
-                                    ));
-                                  },
+                                  onTap: widget.onTap,
                                   child: const Text('Sign In',
                                     style: TextStyle(
                                       fontSize: 15,
@@ -138,7 +142,7 @@ class SignUp extends StatelessWidget {
                                       color: Color(0xFF006A55),
                                     ),
                                   ),
-                                )
+                                ),
                               ],
                             ),
                           ]

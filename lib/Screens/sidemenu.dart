@@ -3,10 +3,21 @@ import 'package:healhub/Screens/about.dart';
 import 'package:healhub/Screens/contact.dart';
 import 'package:healhub/Screens/home_screen.dart';
 import 'package:healhub/Screens/profile_screen.dart';
-import 'package:healhub/Screens/signin_screen.dart';
+import 'package:healhub/Services/auth/auth_service.dart';
+import 'package:provider/provider.dart';
 
-class Sidemenu extends StatelessWidget {
+class Sidemenu extends StatefulWidget {
   const Sidemenu({Key? key}) : super(key: key);
+
+  @override
+  State<Sidemenu> createState() => _SidemenuState();
+}
+
+class _SidemenuState extends State<Sidemenu> {
+  void signOut(){
+    final authService = Provider.of<AuthService>(context, listen: false);
+    authService.signOut();
+  }
 
   @override
   Widget build(BuildContext context) => Drawer(
@@ -20,6 +31,7 @@ class Sidemenu extends StatelessWidget {
       ),
     ),
   );
+
   Widget buildHeader(BuildContext context)=> Material(
     color:Colors.teal.shade300,
     child:InkWell(
@@ -55,6 +67,7 @@ class Sidemenu extends StatelessWidget {
       ),
     ),
   );
+
   Widget buildMenuItems(BuildContext context) =>  Container(
     padding: const EdgeInsets.all(30),
     child:Wrap(
@@ -101,14 +114,8 @@ class Sidemenu extends StatelessWidget {
         ListTile(
           leading:const Icon(Icons.login_outlined),
           title: const Text('Log Out'),
-          onTap: (){
-            Navigator.pop(context);
-            Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => const SignIn()
-            ));
-          },
-        )
-
+          onTap: signOut,
+        ),
       ],
     ),
   );

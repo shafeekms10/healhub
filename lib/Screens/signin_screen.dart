@@ -1,10 +1,39 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:healhub/Screens/home_screen.dart';
-import 'package:healhub/Screens/signup_screen.dart';
+import 'package:healhub/Components/my_button.dart';
+import 'package:healhub/Components/my_text_field.dart';
+import 'package:healhub/Services/auth/auth_service.dart';
+import 'package:provider/provider.dart';
 
-class SignIn extends StatelessWidget {
-  const SignIn({super.key});
+class SignIn extends StatefulWidget {
+  final void Function()? onTap;
+  const SignIn({super.key, required this.onTap});
+
+  @override
+  State<SignIn> createState() => _SignInState();
+}
+
+class _SignInState extends State<SignIn> {
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+
+  void signIn() async {
+    final authService = Provider.of<AuthService>(context, listen: false);
+
+    try {
+      await authService.signInWithEmailAndPassword(
+          emailController.text,
+          passwordController.text
+      );
+    }
+    catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(e.toString()),
+          )
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +46,7 @@ class SignIn extends StatelessWidget {
                   gradient: LinearGradient(
                       colors: [Colors.teal.shade400, Colors.teal.shade100])),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const SizedBox(
                     height: 50,
@@ -37,20 +66,19 @@ class SignIn extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  const SizedBox(height: 30,),
+                  const SizedBox(height: 35,),
                   Opacity(
                     opacity: 0.8,
                     child: Container(
-                      height: 440,
+                      height: 410,
                       width: 350,
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(17)
                       ),
                       child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
                           children:[
-                            const SizedBox(height: 30,),
                             const SizedBox(height: 10,),
                             const Text('Please Sign In to Your Account',
                               style: TextStyle(
@@ -60,28 +88,24 @@ class SignIn extends StatelessWidget {
                               ),
                             ),
                             const SizedBox(height: 20,),
-                            const SizedBox(
+                            SizedBox(
                               width: 250,
-                              child: TextField(
-                                style: TextStyle(fontSize: 13),
-                                decoration: InputDecoration(
-                                  labelText: 'Email Address',
-                                  labelStyle: TextStyle(fontWeight: FontWeight.bold),
-                                  suffixIcon: Icon(FontAwesomeIcons.envelope,size: 17,),
-                                ),
-                              ),
+                              child: MyTextField(
+                                  controller: emailController,
+                                  hintText: 'Email',
+                                  icon: FontAwesomeIcons.envelope,
+                                  obscureText: false,
+                              )
                             ),
                             const SizedBox(height: 20,),
-                            const SizedBox(
+                            SizedBox(
                               width: 250,
-                              child: TextField(
+                              child: MyTextField(
+                                controller: passwordController,
+                                hintText: 'Password',
+                                icon: FontAwesomeIcons.lock,
                                 obscureText: true,
-                                decoration: InputDecoration(
-                                  labelText: 'Password',
-                                  labelStyle: TextStyle(fontWeight: FontWeight.bold),
-                                  suffixIcon: Icon(FontAwesomeIcons.eyeSlash,size: 17,),
-                                ),
-                              ),
+                              )
                             ),
                             const Padding(
                               padding: EdgeInsets.fromLTRB(20, 20, 40, 20),
@@ -97,35 +121,10 @@ class SignIn extends StatelessWidget {
                                 ],
                               ) ,
                             ),
-                            const SizedBox(height: 20,),
-                            GestureDetector(
-                              onTap: (){
-                                Navigator.pop(context);
-                                Navigator.of(context).push(MaterialPageRoute(
-                                    builder: (context) => const Homescreen()
-                                ));
-                              },
-                              child: Container(
-                                alignment: Alignment.center,
-                                width: 250,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(50),
-                                      color: const Color(0xFF006A55),
-                                  ),
-                                child: const Padding(
-                                  padding: EdgeInsets.all(12.0),
-                                  child: Text('Sign In',
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
+                            const SizedBox(height: 10,),
+                            MyButton(onTap: signIn, text: 'Sign In'),
                             const SizedBox(height: 27,),
-                             Row(
+                            Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 const Text('Don\'t have an account? ',
@@ -135,21 +134,17 @@ class SignIn extends StatelessWidget {
                                     color: Colors.grey,
                                   ),
                                 ),
+                                const SizedBox(width: 5,),
                                 GestureDetector(
-                                  onTap: (){
-                                    Navigator.pop(context);
-                                    Navigator.of(context).push(MaterialPageRoute(
-                                        builder: (context) => const SignUp()
-                                    ));
-                                  },
+                                  onTap: widget.onTap,
                                   child: const Text('Sign Up',
-                                    style: TextStyle(
-                                      fontSize: 15,
-                                      fontWeight: FontWeight.bold,
-                                      color: Color(0xFF006A55),
+                                      style: TextStyle(
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.bold,
+                                        color: Color(0xFF006A55),
+                                      ),
                                     ),
-                                  ),
-                                )
+                                ),
                               ],
                             ),
                           ]
