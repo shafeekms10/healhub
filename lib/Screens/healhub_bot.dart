@@ -79,7 +79,8 @@ class HomeState extends State<Home> {
                         prefixIcon: const Icon(Icons.android), // Robot icon
                       ),
                       style: const TextStyle(color: Colors.black,fontSize: 17),
-                    )),
+                    )
+                ),
                 IconButton(
                     onPressed: () {
                       sendMessage(_controller.text);
