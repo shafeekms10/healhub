@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:healhub/Screens/chat.dart';
 import 'package:healhub/Screens/counsellor_directory.dart';
 import 'package:healhub/Screens/feedback.dart';
 import 'package:healhub/Screens/healhub_bot.dart';
@@ -50,40 +51,36 @@ class Homescreen extends StatelessWidget {
           ),
         ),
         drawer: const Sidemenu(),
-        body: Column(
-          children: [
-            SingleChildScrollView(
-              child: Container(
-                decoration: const BoxDecoration(
-                  color: Colors.black,
-                    borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(50),
-                      bottomRight: Radius.circular(50),
-                    )
-                ),
-                height: 410,
-                child: AnotherCarousel(
-                  images: const [
-                    AssetImage('assets/images/1.jpg'),
-                    AssetImage('assets/images/2.jpg'),
-                    AssetImage('assets/images/3.jpg'),
-                    AssetImage('assets/images/4.jpg')
-                  ],
-                  dotBgColor: Colors.transparent,
-                  dotColor: Colors.black,
+        body: Container(
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  colors: [Colors.teal.shade50, Colors.white,Colors.teal.shade50])),
+          child: Column(
+            children: [
+              SingleChildScrollView(
+                child: Container(
+                  decoration: const BoxDecoration(
+                    color: Colors.black,
+                      borderRadius: BorderRadius.only(
+                        bottomLeft: Radius.circular(50),
+                        bottomRight: Radius.circular(50),
+                      )
+                  ),
+                  height: 410,
+                  child: AnotherCarousel(
+                    images: const [
+                      AssetImage('assets/images/1.jpg'),
+                      AssetImage('assets/images/2.jpg'),
+                      AssetImage('assets/images/3.jpg'),
+                    ],
+                    dotBgColor: Colors.transparent,
+                    dotColor: Colors.black,
+                  ),
                 ),
               ),
-            ),
-            Container(
-              decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                      colors: [Colors.teal.shade50, Colors.white,Colors.teal.shade50])),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              Column(
                 children: [
-                  const SizedBox(
-                    height: 7,
-                  ),
+
                   GridView.builder(
                       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 3,
@@ -102,6 +99,9 @@ class Homescreen extends StatelessWidget {
                               ));
                             }
                             else if(index == 1){
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) => const Chat()
+                              ));
                             }
                             else if(index == 2){
                               Navigator.of(context).push(MaterialPageRoute(
@@ -120,7 +120,7 @@ class Homescreen extends StatelessWidget {
                             }
                             else if(index == 5){
                               Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (context) => App()
+                                  builder: (context) => const App()
                               ));
                             }
                           },
@@ -158,9 +158,9 @@ class Homescreen extends StatelessWidget {
                       }
                   ),
                 ],
-              ),
-            )
-          ],
+              )
+            ],
+          ),
         ),
       ),
     );

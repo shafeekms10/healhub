@@ -9,7 +9,7 @@ class Hotlines extends StatelessWidget {
     return MaterialApp(
       title: 'Contact List',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.teal),
         useMaterial3: true,
       ),
       home: const MyHomePage(title: 'Emergency Hotline'),
@@ -31,11 +31,22 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   // Sample list of contacts
   final List<Map<String, String>> contacts = [
-    {"name": "Sri Lanka Sumithrayo", "number": "+9411 267 4436"},
-    {"name": "Bob", "number": "+1 987 654 321"},
-    {"name": "Charlie", "number": "+1 543 216 789"},
-    // Add more contacts as needed
+    {"name": "Sumithrayo", "number": "+9411 269 6666"},
+    {"name": "Shanthi Maargam", "number": "+9471 763 9898"},
+    {"name": "CCCline", "number": "1333"},
+    {"name": "National Institute of Mental Health, Sri Lanka", "number": "1926"},
+    {"name": "Sri Lanka Sumithrayo - Bandarawela", "number": "+9457 222 3333"},
+
+    {"name": "Mental Health Support Line", "number": "+9411 234 5678"},
+    {"name": "Crisis Helpline", "number": "+9411 987 6543"},
+    {"name": "Youth Support Line", "number": "+9411 345 6789"},
+    {"name": "Emotional Support Service", "number": "+9411 567 8901"},
+    {"name": "Counseling Center Hotline", "number": "+9411 678 9012"},
+    {"name": "Well-being Support", "number": "+9411 789 0123"},
+    {"name": "Emergency Mental Health Line", "number": "+9411 890 1234"},
+    // Ensure to validate and update these contacts
   ];
+
 
   @override
   Widget build(BuildContext context) {
