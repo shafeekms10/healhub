@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:healhub/Screens/about.dart';
 import 'package:healhub/Screens/contact.dart';
 import 'package:healhub/Screens/home_screen.dart';
-import 'package:healhub/Screens/profile_screen.dart';
 import 'package:healhub/Services/auth/auth_service.dart';
 import 'package:provider/provider.dart';
 
@@ -34,36 +33,27 @@ class _SidemenuState extends State<Sidemenu> {
 
   Widget buildHeader(BuildContext context)=> Material(
     color:Colors.teal.shade300,
-    child:InkWell(
-      onTap: (){
-        Navigator.pop(context);
-        Navigator.of(context).push(MaterialPageRoute(
-          builder: (context)=>const UserPage(name: 'SahanMax', email: 'Sahan@gmail.com'),
-        ));
-      },
-      child:Container(
-        padding:  EdgeInsets.only(
-          top: 24+ MediaQuery.of(context).padding.top,
-          bottom:24,
-        ),
-        child: const Column(
-          children: [
-            CircleAvatar(
-              radius: 52,
-              backgroundImage: NetworkImage('https://upload.wikimedia.org/wikipedia/commons/c/c0/Siddharth_Nigam_snapped_promoting_his_film_Kisi_Ka_Bhai_Kisi_Ki_Jaan_at_Mehboob_Studios_in_Bandra_%28cropped%29.jpg'
-              ),
-            ),
-            SizedBox(height: 12,),
-            Text(
-              'SahanMax',
-              style: TextStyle(fontSize:28,color: Colors.white),
-            ),
-            Text(
-                'Sahan@gmail.com',
-                style:TextStyle(fontSize:14,color:Colors.white)
-            ),
-          ],
-        ),
+    child:Container(
+      padding:  EdgeInsets.only(
+        top: 24+ MediaQuery.of(context).padding.top,
+        bottom:24,
+      ),
+      child: const Column(
+        children: [
+          CircleAvatar(
+            radius: 52,
+            backgroundImage: AssetImage('assets/images/profile.jpg'),
+          ),
+          SizedBox(height: 12,),
+          Text(
+            'SahanMax',
+            style: TextStyle(fontSize:28,color: Colors.white),
+          ),
+          Text(
+              'Sahan@gmail.com',
+              style:TextStyle(fontSize:14,color:Colors.white)
+          ),
+        ],
       ),
     ),
   );
@@ -100,16 +90,6 @@ class _SidemenuState extends State<Sidemenu> {
           ));
         },
         ),
-        ListTile(
-          leading:const Icon(Icons.notification_add),
-          title: const Text('Notifications'),
-          onTap: (){},
-        ),
-        /* ListTile(
-      leading:const Icon(Icons.favorite_border),
-      title: const Text('Workflow'),
-      onTap: (){},
-    ),*/
         const Divider(color: Colors.black54,),
         ListTile(
           leading:const Icon(Icons.login_outlined),
