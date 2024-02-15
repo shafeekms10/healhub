@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:healhub/Screens/sidemenu.dart';
 
@@ -17,7 +18,6 @@ class Hotlines extends StatelessWidget {
   }
 }
 
-
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key, required this.title}) : super(key: key);
 
@@ -27,7 +27,6 @@ class MyHomePage extends StatefulWidget {
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
-
 class _MyHomePageState extends State<MyHomePage> {
   // Sample list of contacts
   final List<Map<String, String>> contacts = [
@@ -36,7 +35,6 @@ class _MyHomePageState extends State<MyHomePage> {
     {"name": "CCCline", "number": "1333"},
     {"name": "National Institute of Mental Health, Sri Lanka", "number": "1926"},
     {"name": "Sri Lanka Sumithrayo - Bandarawela", "number": "+9457 222 3333"},
-
     {"name": "Mental Health Support Line", "number": "+9411 234 5678"},
     {"name": "Crisis Helpline", "number": "+9411 987 6543"},
     {"name": "Youth Support Line", "number": "+9411 345 6789"},
@@ -46,7 +44,6 @@ class _MyHomePageState extends State<MyHomePage> {
     {"name": "Emergency Mental Health Line", "number": "+9411 890 1234"},
     // Ensure to validate and update these contacts
   ];
-
 
   @override
   Widget build(BuildContext context) {
@@ -73,14 +70,18 @@ class _MyHomePageState extends State<MyHomePage> {
         child: ListView.builder(
           itemCount: contacts.length,
           itemBuilder: (context, index) {
-            return ListTile(
-              title: Text(
-                contacts[index]["name"]!,
-                style: const TextStyle(fontWeight: FontWeight.bold), // Make the name bold
-              ),
-              subtitle: Text(contacts[index]["number"]!),
-              leading: CircleAvatar(
-                child: Text(contacts[index]["name"]![0]), // Display the first letter of the name
+            return Card( // Wrap each ListTile with a Card
+              elevation: 5, // Adjust elevation for shadow effect
+              margin: const EdgeInsets.all(8), // Add some spacing around each card
+              child: ListTile(
+                title: Text(
+                  contacts[index]["name"]!,
+                  style: const TextStyle(fontWeight: FontWeight.bold), // Make the name bold
+                ),
+                subtitle: Text(contacts[index]["number"]!),
+                leading: CircleAvatar(
+                  child: Text(contacts[index]["name"]![0]), // Display the first letter of the name
+                ),
               ),
             );
           },
