@@ -1,33 +1,29 @@
 import 'package:flutter/material.dart';
-import 'package:healhub/Screens/chat.dart';
-import 'package:healhub/Screens/counsellor_directory.dart';
-import 'package:healhub/Screens/feedback.dart';
-import 'package:healhub/Screens/healhub_bot.dart';
-import 'package:healhub/Screens/hotlines.dart';
-import 'package:healhub/Screens/resources.dart';
-import 'package:healhub/Screens/sidemenu.dart';
+import 'package:healhub/Screens/Counsellor/chat.dart';
+import 'package:healhub/Screens/Counsellor/meetings.dart';
+import 'package:healhub/Screens/Counsellor/feedback_counsellor.dart';
+import 'package:healhub/Screens/contact.dart';
+import 'package:healhub/Screens/Client/counsellor_directory.dart';
+import 'package:healhub/Screens/Client/feedback.dart';
 import 'package:another_carousel_pro/another_carousel_pro.dart';
+import 'package:healhub/Screens/Counsellor/sidemenu_counsellor.dart';
 
 List imgData = [
   "assets/images/home1.png",
   "assets/images/home2.png",
-  "assets/images/home3.png",
-  "assets/images/home4.png",
-  "assets/images/home5.png",
-  "assets/images/home6.png"
+  "assets/images/home6.png",
+  "assets/images/home5.png"
 ];
 
 List titles = [
-  "Counsellors",
+  "Schedules",
   "Chat",
-  "Chat Bot",
-  "Resources",
-  "Hotlines",
   "Feedback",
+  "Contact Admin"
 ];
 
-class Homescreen extends StatelessWidget {
-  const Homescreen({Key? key}) : super(key: key);
+class HomescreenCounsellor extends StatelessWidget {
+  const HomescreenCounsellor({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +46,7 @@ class Homescreen extends StatelessWidget {
             ),
           ),
         ),
-        drawer: const Sidemenu(),
+        drawer: const SidemenuCounsellor(),
         body: Container(
           decoration: BoxDecoration(
               gradient: LinearGradient(
@@ -80,11 +76,11 @@ class Homescreen extends StatelessWidget {
               ),
               Column(
                 children: [
-
+                  const SizedBox(height: 22),
                   GridView.builder(
                       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 3,
-                        childAspectRatio: 0.85,
+                        crossAxisCount: 2,
+                        childAspectRatio: 1.3,
                         mainAxisSpacing: 1,
                       ),
                       shrinkWrap: true,
@@ -95,7 +91,7 @@ class Homescreen extends StatelessWidget {
                           onTap: (){
                             if(index == 0){
                               Navigator.push(context, MaterialPageRoute(
-                                  builder: (context) => const Directory()
+                                  builder: (context) => const Meetings()
                               ));
                             }
                             else if(index == 1){
@@ -105,27 +101,17 @@ class Homescreen extends StatelessWidget {
                             }
                             else if(index == 2){
                               Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (context) => const Chatbot()
+                                  builder: (context) => const AppCoun()
                               ));
                             }
                             else if(index == 3){
                               Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (context) => const Resources()
-                              ));
-                            }
-                            else if(index == 4){
-                              Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (context) => const Hotlines()
-                              ));
-                            }
-                            else if(index == 5){
-                              Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (context) => const App()
+                                  builder: (context) => const ContactUsPage()
                               ));
                             }
                           },
                           child: Container(
-                            margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                            margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 23),
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(20),
                               color: Colors.white,

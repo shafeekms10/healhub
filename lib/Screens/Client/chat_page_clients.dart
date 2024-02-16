@@ -2,31 +2,27 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:healhub/Components/chat_bubble.dart';
+import 'package:healhub/Screens/Client/sidemenu.dart';
 import 'package:healhub/Services/chat/chat_service.dart';
 
-class ChatPage extends StatefulWidget {
-  final String receiverUserEmail;
-  final String receiverUserID;
-  final String receiverName;
-  const ChatPage({super.key,
-    required this.receiverUserEmail,
-    required this.receiverUserID,
-    required this.receiverName
-  });
+class ChatPageClient extends StatefulWidget {
+  const ChatPageClient({super.key});
 
   @override
-  State<ChatPage> createState() => _ChatPageState();
+  State<ChatPageClient> createState() => _ChatPageClientState();
 }
 
-class _ChatPageState extends State<ChatPage> {
+class _ChatPageClientState extends State<ChatPageClient> {
 
+  final receiverName='David Johnson';
+  final receiverUserID='vQ51QiBUHHhhStKdak85FHUGgEf2';
   final TextEditingController _messageController = TextEditingController();
   final ChatService _chatService = ChatService();
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
 
   void _sendMessage() async {
     if (_messageController.text.isNotEmpty) {
-      await _chatService.sendMessage(widget.receiverUserID, _messageController.text);
+      await _chatService.sendMessage(receiverUserID, _messageController.text);
       _messageController.clear();
     }
   }
@@ -35,7 +31,7 @@ class _ChatPageState extends State<ChatPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.receiverName, style: const TextStyle(fontWeight: FontWeight.bold,fontSize: 19),),
+        title: Text(receiverName, style: const TextStyle(fontWeight: FontWeight.bold,fontSize: 19),),
         flexibleSpace: Opacity(
           opacity: 0.7,
           child: Container(
@@ -47,6 +43,7 @@ class _ChatPageState extends State<ChatPage> {
           ),
         ),
       ),
+      drawer: const Sidemenu(),
 
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
@@ -65,7 +62,7 @@ class _ChatPageState extends State<ChatPage> {
   Widget _buildMessageList(){
     return StreamBuilder(
       stream: _chatService.getMessages(
-        widget.receiverUserID, _firebaseAuth.currentUser!.uid
+        receiverUserID, _firebaseAuth.currentUser!.uid
       ),
       builder: (context, snapshot){
         if(snapshot.hasError){

@@ -1,9 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:healhub/Screens/sidemenu.dart';
+import 'package:healhub/Screens/Client/sidemenu.dart';
 
-import 'chat_page.dart';
+import '../chat_page.dart';
 
 class Chat extends StatefulWidget {
   const Chat({super.key});
@@ -34,7 +34,7 @@ class _ChatState extends State<Chat> {
         ),
       ),
 
-      drawer: const Sidemenu(),
+      drawer: Sidemenu(),
       body: Padding(
         padding: const EdgeInsets.all(1.0),
         child: _buildUserList( ),
@@ -65,7 +65,7 @@ class _ChatState extends State<Chat> {
     if(_auth.currentUser!.email != data['email']){
       return ListTile(
         leading:const Icon(Icons.account_circle, size: 30, color: Colors.teal,),
-        title: Text(data['email'], style: const TextStyle(fontWeight: FontWeight.bold,fontSize: 17),),
+        title: Text(data['name'], style: const TextStyle(fontWeight: FontWeight.bold,fontSize: 18),),
         onTap: () {
           Navigator.push(
             context,
@@ -73,6 +73,7 @@ class _ChatState extends State<Chat> {
               builder: (context) => ChatPage(
                 receiverUserEmail: data['email'],
                 receiverUserID: data['uid'],
+                receiverName: data['name'],
               ),
             ),
           );

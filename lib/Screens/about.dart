@@ -13,7 +13,7 @@ class AboutUsPage extends StatelessWidget {
       backgroundColor: Colors.white,
 
       appBar: AppBar(
-        title: const Text('Options',
+        title: const Text('AboutUs',
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
         flexibleSpace: Opacity(
@@ -160,7 +160,7 @@ class OurServices extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: const Text('Options',
+        title: const Text('AboutUs',
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
         flexibleSpace: Opacity(
@@ -309,7 +309,7 @@ class FAQ extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: const Text('Options',
+        title: const Text('AboutUs',
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
         flexibleSpace: Opacity(
@@ -443,7 +443,7 @@ class FAQ extends StatelessWidget {
                     Text('Simply download the app from the App Store or Google Play Store and follow the registration process. Healhub offers a wide range of counseling services, including but not limited to anxiety, depression, stress management, relationship issues, self-esteem, and more. Once you\'ve been matched with a counselor, you can schedule a session directly through the app. Simply select a date and time that works for you, and your counselor will confirm the appointment.'),
 
                     SizedBox(height: 20,),
-                    Text('I \'m experiencing technical issues with the app. What should I do?', style: TextStyle(
+                    Text('I\'m experiencing technical issues with the app. What should I do?', style: TextStyle(
                         fontWeight: FontWeight.w600,
                         fontSize: 20
                     ),
@@ -476,7 +476,7 @@ class Volunteer extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: const Text('Options',
+        title: const Text('AboutUs',
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
         flexibleSpace: Opacity(

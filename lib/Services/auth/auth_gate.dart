@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:healhub/Screens/home_screen.dart';
+import 'package:healhub/Screens/Client/home_screen.dart';
+import 'package:healhub/Screens/Counsellor/home_screen_counsellor.dart';
 import 'package:healhub/Services/auth/signin_or_signup.dart';
 
 class AuthGate extends StatelessWidget {
@@ -13,7 +14,13 @@ class AuthGate extends StatelessWidget {
         stream: FirebaseAuth.instance.authStateChanges(),
         builder: (context, snapshot) {
           if(snapshot.hasData){
-            return const Homescreen();
+            final FirebaseAuth user = FirebaseAuth.instance;
+            if(user.currentUser!.email == 'david@gmail.com'){
+              return const HomescreenCounsellor();
+            }
+            else{
+              return const Homescreen();
+            }
           }
           else{
             return const SigninOrSignup();

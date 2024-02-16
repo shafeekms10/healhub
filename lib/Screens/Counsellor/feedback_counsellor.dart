@@ -1,13 +1,16 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:healhub/Screens/Client/sidemenu.dart';
+import 'package:healhub/Screens/Counsellor/sidemenu_counsellor.dart';
 
 
-class App extends StatelessWidget {
-  const App({Key? key}) : super(key: key);
+class AppCoun extends StatelessWidget {
+  const AppCoun({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: MainScreen(),
     );
   }
@@ -21,12 +24,23 @@ class MainScreen extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           title: const Text('Feedback Form'),
-          backgroundColor: Colors.green[900], // Dark green AppBar
+          flexibleSpace: Opacity(
+            opacity: 0.7,
+            child: Container(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [Colors.teal.shade400, Colors.teal.shade100],
+                ),
+              ),
+            ),
+          ),// Dark green AppBar
         ),
-        backgroundColor: Colors.green[600],
+
+        drawer: const SidemenuCounsellor(),
+        backgroundColor: Colors.teal.shade50,
         body: Container(
           decoration: BoxDecoration(
-            color: Colors.green[600], // Your desired background color
+            color: Colors.teal.shade50, // Your desired background color
             boxShadow: [
               BoxShadow(
                 color: Colors.black
@@ -40,10 +54,10 @@ class MainScreen extends StatelessWidget {
           child: Center(
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.white, // Button color
-                foregroundColor: Colors.green[900], // Text color
+                backgroundColor: Colors.teal.shade800, // Button color
+                foregroundColor: Colors.white, // Text color
               ),
-              child: const Text('Open Form'),
+              child: const Text('Give Feedback'),
               onPressed: () {
                 showDialog(
                   context: context,
@@ -82,7 +96,7 @@ class _FeedbackDialogState extends State<FeedbackDialog> {
           controller: _controller,
           keyboardType: TextInputType.multiline,
           decoration: const InputDecoration(
-            hintText: 'Enter your feedback here',
+            hintText: 'Enter your feedback regarding the app here',
             filled: true,
           ),
           maxLines: 5,

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:dialog_flowtter/dialog_flowtter.dart';
 import 'dart:io';
-import 'package:healhub/Screens/sidemenu.dart';
+import 'package:healhub/Screens/Client/sidemenu.dart';
 
 class Chatbot extends StatelessWidget {
   const Chatbot({super.key});
