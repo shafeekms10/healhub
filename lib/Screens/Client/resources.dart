@@ -226,7 +226,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
           ),
-          Card(
+          /*Card(
             elevation: 4,
             margin: const EdgeInsets.all(8),
             color: Colors.teal[400], // Set card background to green
@@ -249,7 +249,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ],
               ),
             ),
-          ),
+          ),*/
         ],
       ),
     );
