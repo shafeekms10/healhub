@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:healhub/Screens/Counsellor/chat.dart';
+import 'package:healhub/Screens/Counsellor/chat_list.dart';
 import 'package:healhub/Screens/Counsellor/meetings.dart';
 import 'package:healhub/Screens/Counsellor/feedback_counsellor.dart';
 import 'package:healhub/Screens/contact.dart';
-import 'package:healhub/Screens/Client/counsellor_directory.dart';
-import 'package:healhub/Screens/Client/feedback.dart';
 import 'package:another_carousel_pro/another_carousel_pro.dart';
 import 'package:healhub/Screens/Counsellor/sidemenu_counsellor.dart';
 

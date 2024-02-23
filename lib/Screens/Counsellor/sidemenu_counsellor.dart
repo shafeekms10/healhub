@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:healhub/Screens/Counsellor/home_screen_counsellor.dart';
 import 'package:healhub/Screens/about.dart';
 import 'package:healhub/Screens/contact.dart';
-import 'package:healhub/Screens/Client/home_screen.dart';
 import 'package:healhub/Services/auth/auth_service.dart';
 import 'package:provider/provider.dart';
 

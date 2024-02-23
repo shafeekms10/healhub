@@ -43,6 +43,7 @@ dependencies:
   cloud_firestore: ^4.15.4
   firebase_auth: ^4.17.4
   provider:
+  flutter_screenutil: ^5.9.0
 
 
 

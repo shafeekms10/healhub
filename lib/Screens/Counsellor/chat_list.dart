@@ -1,9 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:healhub/Screens/Client/sidemenu.dart';
-
-import '../chat_page.dart';
+import 'package:healhub/Screens/Counsellor/sidemenu_counsellor.dart';
+import 'chat_page_counsellor.dart';
 
 class Chat extends StatefulWidget {
   const Chat({super.key});
@@ -34,7 +33,7 @@ class _ChatState extends State<Chat> {
         ),
       ),
 
-      drawer: Sidemenu(),
+      drawer: const SidemenuCounsellor(),
       body: Padding(
         padding: const EdgeInsets.all(1.0),
         child: _buildUserList( ),
